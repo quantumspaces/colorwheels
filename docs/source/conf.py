@@ -12,7 +12,7 @@ version = __version__
 
 project = 'colorwheels'
 copyright = '2021, Quantum Spaces'
-author = 'Quantum Quommander'
+author = 'Quantum Spaces'
 
 # The full version, including alpha/beta/rc tags
 release = version

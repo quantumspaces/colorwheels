@@ -54,6 +54,6 @@ setup(
 
     project_urls={
         'Bug Reports': 'https://github.com/quantumspaces/colorwheels/issues',
-        'Source': 'https://github.com/quantumspaces/colorwheels/',
+        'Source': 'https://github.com/quantumspaces/colorwheels',
     },
 )
