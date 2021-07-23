@@ -8,6 +8,12 @@ Works great when generating rainbow effects in hobby electronics (RGB LEDs, RGB 
 
 Check the docs foer more details on the solution.
 
+## Links
+
+* [GitHub](https://github.com/quantumspaces/colorwheels)
+* [PyPi](https://pypi.org/project/colorwheels/)
+* [Read The Docs](https://colorwheels.readthedocs.io/en/latest/)
+
 ## About
 
 We are a maker community in Karlskrona, Sweden. We run makerspaces every week, working with Raspberry Pis, Arduinos and other interesting hardware.
