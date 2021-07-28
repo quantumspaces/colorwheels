@@ -40,7 +40,7 @@ class WheelItem:
             red = math.sin(frequency*i + 0) * amplitude + center
             green = math.sin(frequency*i + 2) * amplitude + center
             blue = math.sin(frequency*i + 4) * amplitude + center
-            self.colors.append((int(red), int(green), int(blue)))
+            self.colors.append(ColorItem(red=int(red), green=int(green), blue=int(blue)))
 
     def from_float_list(self, color_list):
         """Convert a list of float RGB tuples to native format
