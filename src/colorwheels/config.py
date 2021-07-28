@@ -2,7 +2,7 @@
 
 import logging
 
-__version__ = "0.7.0"
+__version__ = "0.7.1"
 
 #: Sets application-wide loglevel
 LOG_LEVEL = logging.DEBUG

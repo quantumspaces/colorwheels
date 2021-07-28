@@ -51,6 +51,19 @@ class Colorwheels():
         return (f"Colorwheels - wheels: {len(self._wheel_configurations)},"
                 f"active: '{self.active_wheel.name}'")
 
+    @property
+    def wheel_configurations(self):
+        """Returns the configuration object :doc:`colorwheels_config`,
+        used by Colorwheels
+
+        You can manage the configurations from any Colorwheels instance used
+        in your program. Handle with care! The configurator is a singleton, i.e.
+        if you for example load a different set of colors, all running
+        generators will be affected.
+        """
+
+        return self._wheel_configurations
+
 # -- Generator Functions -----------------------------------------------------
 
     def __iter__(self):
