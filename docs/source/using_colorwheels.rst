@@ -10,7 +10,7 @@ This is a getting started guide, on using Colorwheels modules. As mentioned in t
 Importing
 =========
 
-To import all ``colorwheels`` modules, simply install the package and add an import statement to your script.
+To import all ``colorwheels`` modules, simply add an import statement to your script.
 
 .. code-block:: python
 

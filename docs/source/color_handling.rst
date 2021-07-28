@@ -19,11 +19,37 @@ Colorwheels introduces 2 objects to handle color definitions: :doc:`color_item`,
 YAML Definition
 ===============
 
-The easiest way to define colors is the code your own YAML file. We have a whole section dedicated to YAML, read more in :doc:`yaml_definitions`.
-
-TODO
+The easiest way to define colors is the code your own YAML file. We have a whole section dedicated to YAML, read more in :doc:`yaml_definitions`. You can also find an example color definition file in the examples directory.
 
 Colors in code
 ==============
 
-TODO
+You may want to add a color definitions to the pool of available colors (which is managed by :doc:`colorwheels_config`). As soon as the color definition you create is added, it will be available to all :doc:`colorwheels` instances.
+
+A color definition is basically a list of colors (defined by the :doc:`color_item` dataclass) with a name attached. This is bundled in the :doc:`wheel_item` dataclass.
+
+So, adding your own RGB sequence using code could look like this:
+
+.. code-block:: python
+
+    # mywheels.py
+    #
+    # Colorwheel Generator Example 4
+
+    from typing import List
+    import colorwheels
+
+    def my_rgb():
+        """Create a list of colors (rgb)"""
+
+        color_list = list()
+        color_list.append(colorwheels.ColorItem(red=255, green=0, blue=0))
+        color_list.append(colorwheels.ColorItem(red=0, green=255, blue=0))
+        color_list.append(colorwheels.ColorItem(red=0, green=0, blue=255))
+
+        return color_list
+
+    wheels = colorwheels.Colorwheels()
+    # add my new list named 'myrgb' to common configurations ->
+    # can be used by any other instance of Colorwheels
+    wheels.wheel_configurations.add_wheel_item(colorwheels.WheelItem("myrgb", my_rgb()))

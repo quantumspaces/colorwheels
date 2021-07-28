@@ -1,4 +1,4 @@
-"""ColorwheelsConfig is a configuration helper for :class:`Colorwheels`, implemented
+"""ColorwheelsConfig is a configuration helper for :doc:`colorwheels`, implemented
 as a singleton.
 
 The helper loads a configuration YAML file and serves the colors by name to
