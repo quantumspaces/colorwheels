@@ -6,7 +6,21 @@ This project is a continuous color generator for Python. We create a palette of 
 
 Works great when generating rainbow effects in hobby electronics (RGB LEDs, RGB Panels), and elsewhere. The idea behind is an endless colorwheel for photographers - the wheel continuously turns around to generate the next color.
 
-Check the docs foer more details on the solution.
+Here's an example of colorwheels on a keybow, waiting for a keypress.
+
+![keybow](img/keybow-colorwheels.gif)
+
+All in a few lines of code:
+
+```python
+
+# wheel is initialized and definitions loaded
+while True:
+    color = wheel.next()
+    keybow.set_led(9, color[0], color[1], color[2])
+    keybow.show()
+    time.sleep(0.1)
+```
 
 ## Links
 
