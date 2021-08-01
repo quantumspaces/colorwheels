@@ -8,7 +8,7 @@ Works great when generating rainbow effects in hobby electronics (RGB LEDs, RGB 
 
 Here's an example of colorwheels on a keybow, waiting for a keypress.
 
-![keybow](img/keybow-colorwheels.gif)
+![keybow](https://raw.githubusercontent.com/quantumspaces/colorwheels/0.7.2/img/keybow-colorwheels.gif)
 
 All in a few lines of code:
 
