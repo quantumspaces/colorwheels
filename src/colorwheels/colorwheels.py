@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 """ ``Colorwheels`` is a module to generate color sequences. A Colorwheels instance
 contains multiple color wheel definitions and functions as a generator of color values
 in multiple formats. You can activate any available colorwheel anytime, to obtain
@@ -8,11 +6,9 @@ different effects.
 
 import logging
 
-from .config import LOG_LEVEL, LOG_FORMAT
 from .colorwheels_config import ColorwheelsConfig
 
 logger = logging.getLogger(__name__)
-logging.basicConfig(format=LOG_FORMAT, level=LOG_LEVEL)
 
 generator_types = ["rgb_tuple", "rgba_tuple", "hexadecimal"]
 

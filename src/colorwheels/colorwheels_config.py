@@ -8,16 +8,14 @@ import logging
 
 import yaml
 
-from .config import LOG_LEVEL, LOG_FORMAT
 from .singleton import Singleton
 from .color_item import ColorItem
 from .wheel_item import WheelItem
 
 logger = logging.getLogger(__name__)
-logging.basicConfig(format=LOG_FORMAT, level=LOG_LEVEL)
 
 class ColorwheelsConfig(metaclass=Singleton):
-    """ helper"""
+    """Configuration helper for :doc:`colorwheels`."""
 
     def __init__(self):
         """ Initialize configuration helper for :doc:`colorwheels`.

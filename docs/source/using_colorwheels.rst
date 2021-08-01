@@ -131,3 +131,7 @@ You can switch palettes on the run. Below is a more complete example of real-lif
         # apply color to button / LED etc.
         time.sleep(1)
 
+Logging
+=======
+
+The package uses standard Python logging. Please configure according to your needs.

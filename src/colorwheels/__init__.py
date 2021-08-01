@@ -1,4 +1,4 @@
-from .config import __version__, LOG_LEVEL, LOG_FORMAT
+from .config import __version__
 from .singleton import Singleton
 from .color_item import ColorItem
 from .wheel_item import WheelItem
