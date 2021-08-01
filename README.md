@@ -14,7 +14,7 @@ All in a few lines of code:
 
 ```python
 
-# wheel is initialized and definitions loaded
+# wheel is initialized and definitions loaded or generated
 while True:
     color = wheel.next()
     keybow.set_led(9, color[0], color[1], color[2])

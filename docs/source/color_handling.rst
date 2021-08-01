@@ -8,6 +8,8 @@ Introduction
 The default color configuration comes with one RGB sequence as a default in the configuration file. You can import color sequences from a YAML definition file 
 as well, or you can define your own in code of course. This section describes how.
 
+Get more details on crafting your YAML file in this tutorial section: :doc:`yaml_definitions`.
+
 Color Objects
 =============
 

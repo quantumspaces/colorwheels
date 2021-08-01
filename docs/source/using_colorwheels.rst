@@ -7,6 +7,8 @@ Introduction
 
 This is a getting started guide, on using Colorwheels modules. As mentioned in the introduction, a :doc:`colorwheels` instance is an endless color sequence generator to drive changing colors in our RGB Led hardware.
 
+Once you have covered the basics, check our tutorial page on :doc:`color_handling`.
+
 Importing
 =========
 
