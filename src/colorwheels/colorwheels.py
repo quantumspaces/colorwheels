@@ -27,7 +27,7 @@ class Colorwheels():
     examples.
     """
 
-    def __init__(self):
+    def __init__(self, add_base_colors=True):
         """Create ``Colorwheels`` instance.
 
         wheel configurations is a :doc:`colorwheels_config` object (singleton), which
@@ -43,12 +43,14 @@ class Colorwheels():
         self.set_generator_type("rgb_tuple")
 
         self._wheel_configurations = ColorwheelsConfig()
+        if add_base_colors:
+            self.wheel_configurations.add_base_colors()
 
         self.active_wheel = None
         self.activate_colorwheel(self._wheel_configurations.first_wheel.name)
 
     def __str__(self):
-        return (f"Colorwheels - wheels: {len(self._wheel_configurations)},"
+        return (f"Colorwheels - available: {len(self._wheel_configurations._wheel_items)}, "
                 f"active: '{self.active_wheel.name}'")
 
     @property

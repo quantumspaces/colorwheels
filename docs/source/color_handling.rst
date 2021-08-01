@@ -55,3 +55,17 @@ So, adding your own RGB sequence using code could look like this:
     # add my new list named 'myrgb' to common configurations ->
     # can be used by any other instance of Colorwheels
     wheels.wheel_configurations.add_wheel_item(colorwheels.WheelItem("myrgb", my_rgb()))
+
+Base Colors
+===========
+
+Your application may depend on some base colors, not necessarily in a / any sequence. Colorwheels has you covered: you can invoke ``add_base_colors`` in :doc:`colorwheels_config` and these colors will be available to you. The idea is, that the generator can serve only one color, again and again. In any format.
+
+The ``add_base_colors`` method adds the following colors to your configuration file: 'red', 'green', 'blue', 'cyan', 'magenta', 'yellow', 'black', and 'white'.
+
+We use this feature not only for static basic colors, but also in solutions, where a background and foreground colorwheel are needed. For the foreground, we use a rotating Colorwheel based on the aesthetics of the solution, but for the background we start we a static color, say black. Now if we want to rotate both the foreground and background, we simply activate a different background. Neat hallucinogenous effects can be achieved, on the same color engine.
+
+Base colors can be enforced by using the ``add_base_colors`` flag in ``load_wheels`` of :doc:`colorwheels_config`, or when creating a new :doc:`colorwheels` instance. In both cases, the default is set to ``True``, so you'll probably end-up having them in your color collection.
+
+Tip: you may want to over-ride a base color setting for one reason or another. For example, if you want your specific flavor of 'red' instead of the default '(255,0,0)', simply define it in your YAML configuration file; ``add_base_colors`` adds colors by name, only if they don't exist yet.
+

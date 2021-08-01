@@ -25,7 +25,9 @@ class ColorwheelsConfig(metaclass=Singleton):
         The constructor creates the most simple configuration, and we expect
         a configuration file to be loaded later by code.
 
-        The initial wheels available are primitives: 'red', 'green', 'blue'"""
+        The initial wheel available is a primitive with 'red', 'green', 'blue',
+        under the wheel name 'default'. This is equivalent to an RGB
+        definition."""
 
         self._wheel_items = list() # list of WheelItem objects
 
@@ -85,6 +87,46 @@ class ColorwheelsConfig(metaclass=Singleton):
 
 # -- Loading Configuration ---------------------------------------------------
 
+    def add_base_colors(self):
+        """This method adds base colors to the list of available colors in
+        colorwheels, to ensure availability of often used colors.
+
+        These simple color sequences have only one color available, so running
+        the generator returns the same color all over again. It can come in
+        handy for example, if you have 2 colorwheels for foreground/background,
+        and want to have the background defaulting to black only ....
+
+        The method adds the following one-color named wheels:
+
+        'red', 'green', 'blue', 'cyan', 'magenta', 'yellow', 'black', 'white'
+        """
+
+        logger.info("Adding base colors")
+        if self.find_wheel("red") is None:
+            self.add_wheel_item(
+                self.create_wheel_item("red", [ColorItem(red=255, green=0, blue=0)]))
+        if self.find_wheel("green") is None:
+            self.add_wheel_item(
+                self.create_wheel_item("green", [ColorItem(red=0, green=255, blue=0)]))
+        if self.find_wheel("blue") is None:
+            self.add_wheel_item(
+                self.create_wheel_item("blue", [ColorItem(red=0, green=0, blue=255)]))
+        if self.find_wheel("cyan") is None:
+            self.add_wheel_item(
+                self.create_wheel_item("cyan", [ColorItem(red=0, green=255, blue=255)]))
+        if self.find_wheel("magenta") is None:
+            self.add_wheel_item(
+                self.create_wheel_item("magenta", [ColorItem(red=255, green=0, blue=255)]))
+        if self.find_wheel("yellow") is None:
+            self.add_wheel_item(
+                self.create_wheel_item("yellow", [ColorItem(red=255, green=255, blue=0)]))
+        if self.find_wheel("black") is None:
+            self.add_wheel_item(
+                self.create_wheel_item("black", [ColorItem(red=0, green=0, blue=0)]))
+        if self.find_wheel("white") is None:
+            self.add_wheel_item(
+                self.create_wheel_item("white", [ColorItem(red=255, green=255, blue=255)]))
+
     def _check_release(self):
         """Validate the version of the configuration file."""
 
@@ -134,7 +176,7 @@ class ColorwheelsConfig(metaclass=Singleton):
             else:
                 raise ValueError(f"Unknown wheel type {element_type}")
 
-    def load_wheels(self, filename):
+    def load_wheels(self, filename, add_base_colors=True):
         """loads YAML color definition file. The loaded file is converted to a list of
         :doc:`wheel_item` objects.
 
@@ -148,6 +190,8 @@ class ColorwheelsConfig(metaclass=Singleton):
                 try:
                     yml = yaml.safe_load(stream)
                     self._create_wheel_items(yml)
+                    if add_base_colors:
+                        self.add_base_colors()
                 except yaml.YAMLError as exc:
                     logger.fatal("Loading configuration file '%s' failed: %s", filename, exc)
                     raise exc
