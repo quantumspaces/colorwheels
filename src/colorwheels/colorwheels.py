@@ -62,6 +62,20 @@ class Colorwheels():
 
         return self._wheel_configurations
 
+    @property
+    def active_colors(self):
+        """Color list of active colorwheel.
+
+        Exposes the active colorwheels color list for easy iteration"""
+
+        return self.active_wheel.colors
+
+    @property
+    def active_name(self):
+        """Currently active colorwheel name"""
+
+        return self.active_wheel.name
+
 # -- Generator Functions -----------------------------------------------------
 
     def __iter__(self):

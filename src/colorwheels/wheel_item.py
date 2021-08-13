@@ -22,6 +22,17 @@ class WheelItem:
     name: str
     colors: List[ColorItem]
 
+    def __str__(self):
+        """Print overview of WheelItem instance"""
+
+        return f"WheelItem '{self.name}' containing {len(self.colors)} colors"
+
+    @property
+    def is_single_color(self):
+        """Indicates, if color list contains only one color"""
+
+        return len(self.colors) == 1
+
     def generate_rainbow(self, size, amplitude, center, frequency):
         """Generate colors with a Rainbow palette. Overwrites colors list.
 

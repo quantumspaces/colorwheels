@@ -37,6 +37,11 @@ class ColorwheelsConfig(metaclass=Singleton):
                 ColorItem(0, 255, 0),
                 ColorItem(0, 0, 255)]))
 
+    def __str__(self):
+        """Show humanly readable configuration summary"""
+
+        return f"ColorwheelsConfig: {len(self._wheel_items)} wheel definitions"
+
 # -- Configuration Handling --------------------------------------------------
 
     @property
