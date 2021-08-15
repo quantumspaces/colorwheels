@@ -131,6 +131,41 @@ You can switch palettes on the run. Below is a more complete example of real-lif
         # apply color to button / LED etc.
         time.sleep(1)
 
+
+Where to next?
+==============
+
+There are other features where our generator will help you. Check the available functions of :doc:`colorwheels` and :doc:`colorwheels_config`, as well as the features in our color classes: :doc:`color_item` and :doc:`wheel_item`.
+
+Below is an example of using a so far not-mentioned class method of :doc:`wheel_item` - ``wheel_complement``: as you'll find out in the documentation, the method copies over an existing wheel item and switches all colors to complementing colors. Comes in very useful for example, when you want to handle object colors with a well contrasting background.
+
+.. code-block:: python
+
+    # mywheels.py
+    #
+    # Colorwheel Generator Example 4
+
+    import colorwheels
+    import time
+
+    text_wheel = colorwheels.Colorwheels()
+    background_wheel = colorwheels.Colorwheels()
+
+    # load your color palettes here. For example 'reds' for red tints, 
+    # 'greens' for green tints. We're going to activate blue tints.
+
+    text_wheel.activate_colorwheel("blues")
+    # background wheel generates a new palette 'blues_complement'
+    # the palette is local (i.e. not stored in the config singleton)
+    background_wheel.active_wheel = colorwheels.WheelItem.wheel_complement(text_wheel.active_wheel)
+
+    while(True):
+        text_color = next(text_wheel)
+        background_color = next(background_wheel)
+        # write your text with obtained colors
+        time.sleep(1)
+
+
 Logging
 =======
 

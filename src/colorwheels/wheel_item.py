@@ -70,3 +70,18 @@ class WheelItem:
             new_color = ColorItem(0, 0, 0)
             new_color.from_float(color)
             self.colors.append(new_color)
+
+    @classmethod
+    def wheel_complement(cls, reference_wheel, name=""):
+        """Use the reference wheel to create a similar, but color complementing wheel item
+
+        If no name is provided, uses original name with the '_complement' suffix"""
+
+        new_name = name if name else f"{reference_wheel.name}_complement"
+        new_wheel = cls(new_name, list())
+
+        for old_color in reference_wheel.colors:
+            new_color = old_color.complement
+            new_wheel.colors.append(new_color)
+
+        return new_wheel

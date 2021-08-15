@@ -79,7 +79,7 @@ class ColorItem:
             return a + c
 
         k = min_max(self.red, self.green, self.blue)
-        return tuple(k - u for u in (self.red, self.green, self.blue))
+        return ColorItem(k - self.red, k - self.green, k - self.blue)
 
     def from_float(self, colrgb):
         """Convert a float RGB tuple the native format (int tuple)
