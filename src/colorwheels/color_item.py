@@ -6,8 +6,8 @@ The object contains the following values:
 * green: green component of color (integer)
 * blue: blue component of color (integer)
 
-You can convert color formats as well in between RGB, RGBA (integer representation)
-and float representations.
+Further, color format conversions - in between RGB, RGBA (integer representation)
+and float representations - are provided.
 """
 
 from dataclasses import dataclass

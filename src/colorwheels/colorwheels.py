@@ -7,6 +7,7 @@ different effects.
 import logging
 
 from .colorwheels_config import ColorwheelsConfig
+from .wheel_item import WheelItem
 
 logger = logging.getLogger(__name__)
 
@@ -178,8 +179,6 @@ class Colorwheels():
             self._generator_type = new_type
             logger.info("Setting generator type to '%s'", self._generator_type)
 
-# -- NEW ---------------------------------------------------------------------
-
     def activate_colorwheel(self, name):
         """Activates colorwheel by name, from configuration file. Sets
         active_wheel with new setting.
@@ -199,3 +198,43 @@ class Colorwheels():
             message = f"Wheel '{name}' cannot be activated. Not found"
             logger.fatal(message)
             raise ValueError(message)
+
+    def complement(self):
+        """Use own colors to create a compementing color palette.
+
+        Current colors are overwritten.
+
+        Tip: to synchronize two colorwheels, create complements before
+        using the generator(s)
+
+        See Also
+        --------
+        rainbow: You can also change the generator colors by creating a
+            rainbow effect
+        """
+
+        new_wheel_item = WheelItem.complement_wheel_item(self.active_wheel)
+        self.active_wheel = new_wheel_item
+
+    def rainbow(self, size):
+        """Generate rainbow color palette, using defaults.
+
+        Current colors are overwritten. A new, suitable name is generated.
+
+        Tip: to generate rainbow effects with more options, use the related
+        rainbow class method from wheel_item
+
+        Parameters
+        ----------
+        size:
+            number of rainbow colors to be generated
+
+        See Also
+        --------
+        complement: You can also change the generator colors by replacing
+            current colors with complementing colors
+        """
+
+        new_name = f"rainbow_{size}"
+        new_wheel_item = WheelItem.rainbow_wheel_item(new_name, size)
+        self.active_wheel = new_wheel_item

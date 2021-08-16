@@ -57,6 +57,7 @@ class ColorwheelsConfig(metaclass=Singleton):
         items = [item for item in self._wheel_items if item.name == name]
         return items[0] if items else None
 
+    @property
     def wheel_names(self):
         """Return list of wheel names available in configuration"""
 
@@ -67,6 +68,12 @@ class ColorwheelsConfig(metaclass=Singleton):
 
     def add_wheel_item(self, item):
         """Adds a :doc:`wheel_item` to definitions list.
+
+        Parameters
+        ----------
+        item:
+            A :doc:`wheel_item` object, which should be added to global
+            configurations
 
         Raises
         ------
@@ -83,7 +90,15 @@ class ColorwheelsConfig(metaclass=Singleton):
             raise ValueError("Item '%s' cannot be added. Already exists" % item.name)
 
     def create_wheel_item(self, name, colors):
-        """Create a :doc:`wheel_item` from parts. Function returns the created item"""
+        """Create a :doc:`wheel_item` from parts. Function returns the created item
+
+        Parameters
+        ----------
+            name:
+                Name your new :doc:`wheel_item`
+            colors:
+                Supply a list of of :doc:`color_item` color objects
+        """
 
         new_item = WheelItem(name=name, colors=colors)
         return new_item
@@ -137,7 +152,14 @@ class ColorwheelsConfig(metaclass=Singleton):
         logger.info("Color definition file is at version '%s'", self.release)
 
     def _create_wheel_items(self, yaml_data):
-        """Convert yaml data to wheel items"""
+        """Convert yaml data to wheel items
+
+        Parameters
+        ----------
+            yaml_data:
+                yaml object (dictionary) defining all color wheels. See
+                :doc:`yaml_definitions`
+        """
 
         self._wheel_items.clear()
 
@@ -183,10 +205,21 @@ class ColorwheelsConfig(metaclass=Singleton):
         """loads YAML color definition file. The loaded file is converted to a list of
         :doc:`wheel_item` objects.
 
-        Raises ``FileNotFoundError``, or ``YAMLError`` if loading fails.
-
         When loading a new definition from YAML, make sure colorwheels activates whatever wheel
-        is required!"""
+        is required!
+
+        Parameters
+        ----------
+            filename: filename of file containing color definitions in YAML format. See
+                :doc:`yaml_definitions` for more details
+
+        Raises
+        ------
+            FileNotFoundError:
+                If file is not found on system
+            YAMLError:
+                If file is a wrongly formatted YAML file
+        """
 
         try:
             with open(filename, 'r') as stream:

@@ -62,6 +62,11 @@ class WheelItem:
         The Colour library uses RGB float values, encoded in tuples ranging
         from 0.0-1.0. We convert these values to an int tuple, i.e. int values
         ranging from 0-255
+
+        Parameters
+        ----------
+            color_list:
+                A list of colors in float format(0.0-1.0 for each segment)
         """
 
         self.colors.clear()
@@ -71,17 +76,34 @@ class WheelItem:
             new_color.from_float(color)
             self.colors.append(new_color)
 
+# -- class methods -----------------------------------------------------------
+
     @classmethod
-    def wheel_complement(cls, reference_wheel, name=""):
-        """Use the reference wheel to create a similar, but color complementing wheel item
+    def complement_wheel_item(cls, reference_wheel, name=""):
+        """Use the reference wheel to create a similar, but color complementing
+        wheel item.
 
         If no name is provided, uses original name with the '_complement' suffix"""
 
         new_name = name if name else f"{reference_wheel.name}_complement"
-        new_wheel = cls(new_name, list())
+        new_wheel_item = cls(new_name, list())
 
         for old_color in reference_wheel.colors:
             new_color = old_color.complement
-            new_wheel.colors.append(new_color)
+            new_wheel_item.colors.append(new_color)
 
-        return new_wheel
+        return new_wheel_item
+
+    @classmethod
+    def rainbow_wheel_item(cls, name, size, amplitude=127, center=128, frequency=0.3):
+        """Generate a wheel item with a Rainbow palette. Provides some sensible
+        defaults.
+        """
+
+        new_wheel_item = cls(name, list())
+        new_wheel_item.generate_rainbow(size,
+                                        amplitude=amplitude,
+                                        center=center,
+                                        frequency=frequency)
+
+        return new_wheel_item
