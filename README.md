@@ -22,6 +22,10 @@ while True:
     time.sleep(0.1)
 ```
 
+similarly, we use colorwheels for generating color effects on RGB matrices. Below is an example of a rainbow colorwheel used for text, black colorwheel used for background and all captured from *ty-porter's* [RGBMatrixEmulator](https://github.com/ty-porter/RGBMatrixEmulator)
+
+![rainbow welcome](img/welcome-rainbow.gif)
+
 ## Links
 
 * [GitHub](https://github.com/quantumspaces/colorwheels)
