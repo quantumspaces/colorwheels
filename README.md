@@ -2,6 +2,8 @@
 
 An Endless Color Generator
 
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/quantumspaces/colorwheels?include_prereleases)
+
 This project is a continuous color generator for Python. We create a palette of a specific color range, a palette of matching colors and similar to serve to a consumer application. 
 
 Works great when generating rainbow effects in hobby electronics (RGB LEDs, RGB Panels), and elsewhere. The idea behind is an endless colorwheel for photographers - the wheel continuously turns around to generate the next color.
